@@ -1,0 +1,38 @@
+name: meltano_transformer
+version: '1.0'
+profile: meltano
+config-version: 2
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+model-paths:
+- models
+analysis-paths:
+- analysis
+test-paths:
+- tests
+seed-paths:
+- data
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+
+target-path: ../.meltano/transformers/dbt/target
+log-path: logs
+packages-install-path: dbt_packages
+clean-targets:
+- ../.meltano/transformers/dbt/target
+- dbt_packages
+- logs
+models:
+  meltano_transformer:
+    marts:
+      core:
+        example_schema:
+          +dataset: example_schema
+    staging:
+      other_example_schema:
+        +dataset: other_example_schema
+  ## elementary models will be created in the schema '<your_schema>_elementary'
+  ## see docs: https://docs.elementary-data.com/
+  elementary:
+    +schema: "elementary"
