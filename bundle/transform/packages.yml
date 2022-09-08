@@ -1,5 +1,5 @@
 packages:
-  - package: dbt-labs/dbt_utils
-    version: 0.8.6
   - package: elementary-data/elementary
-    version: 0.4.5
+    version: 0.4.11
+    ## compatible with Elementary CLI version 0.4.11
+    ## see docs: https://docs.elementary-data.com/
